@@ -187,3 +187,114 @@ footer {
 .contact-list a:hover {
   color: #005fa3;
 }
+
+
+/* Base styles */
+nav {
+  margin-top: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+  }
+
+  #navMenu {
+    display: none;
+  }
+
+  #navMenu.active {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f2f2f2;
+    padding: 15px;
+    margin-top: 10px;
+  }
+}
+/* Hamburger button */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
+
+/* Sidebar menu - hidden by default */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* hidden */
+  height: 100%;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  padding-top: 60px;
+}
+
+.sidebar.active {
+  left: 0; /* visible */
+}
+
+.sidebar .nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.sidebar .nav-links li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Responsive: show hamburger and hide normal nav on small screens */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  nav:not(.sidebar) {
+    display: none;
+  }
+}
