@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jewellery | Fashion Hub</title>
+  <link rel="stylesheet" href="shop.css" />
+</head>
+<body>
+  <header class="header-bar">
+    <div class="header-top">
+      <a href="index.html" class="logo">Fashion Hub</a>
+      <nav class="top-links">
+        <a href="#">Account</a>
+        <a href="#">Wishlist</a>
+        <span class="cart-icon" id="cartBtn">🛍️<span class="cart-count" id="cartCount">0</span></span>
+      </nav>
+      <button id="hamburgerBtn" class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav id="navMenu" class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="clothes.html">Clothes</a></li>
+        <li><a href="bags.html">Bags</a></li>
+        <li><a href="jewellery.html">Jewellery</a></li>
+        <li><a href="shoes.html">Shoes</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1>Jewellery</h1>
+      <p>Elegant jewellery pieces - rings, bracelets, earrings and necklaces to elevate any look.</p>
+    </section>
+    <section class="page-section">
+      <div class="product-grid">
+        <article class="product-card">
+          <img src="images/Gold Pendant (1).jpeg" alt="Gold Pendant" />
+          <div class="product-copy">
+            <h3>Gold Pendant</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 2,700</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Gold Pendant" data-price="2700">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Hoop Earring.jpeg" alt="Hoop Earrings" />
+          <div class="product-copy">
+            <h3>Hoop Earrings</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 1,900</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Hoop Earrings" data-price="1900">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Colorful Beaded Bracelet.jpeg" alt="Beaded Bracelet" />
+          <div class="product-copy">
+            <h3>Beaded Bracelet</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 2,300</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Beaded Bracelet" data-price="2300">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Statement Ring.jpeg" alt="Statement Ring" />
+          <div class="product-copy">
+            <h3>Statement Ring</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 3,200</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Statement Ring" data-price="3200">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Gold Pendant (1).jpeg" alt="Gold Chain Pendant" />
+          <div class="product-copy">
+            <h3>Gold Chain Pendant</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 2,900</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Gold Chain Pendant" data-price="2900">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Pearl Earrings.jpeg" alt="Pearl Earrings" />
+          <div class="product-copy">
+            <h3>Pearl Earrings</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 2,100</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Pearl Earrings" data-price="2100">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Beaded Bracelet.jpeg" alt="Colorful Beaded Bracelet" />
+          <div class="product-copy">
+            <h3>Colorful Beaded Bracelet</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 1,700</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Colorful Beaded Bracelet" data-price="1700">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Gold Chain.jpeg" alt="Gold Chain" />
+          <div class="product-copy">
+            <h3>Gold Chain</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 2,500</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Gold Chain" data-price="2500">Add to Cart</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">KES 0</span>
+      </div>
+      <button class="cart-checkout" id="checkoutBtn">Checkout via WhatsApp</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h4>Help & Information</h4>
+        <ul>
+          <li><a href="customer-care.html">Customer Care</a></li>
+          <li><a href="track-order.html">Track Order</a></li>
+          <li><a href="delivery-returns.html">Delivery & Returns</a></li>
+          <li><a href="loyalty.html">Fashion Hub Loyalty</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About Fashion Hub</h4>
+        <ul>
+          <li><a href="our-story.html">Our Story</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More from Fashion Hub</h4>
+        <ul>
+          <li><a href="gift-vouchers.html">Gift Vouchers</a></li>
+        </ul>
+        <div class="social-links">
+          <a href="https://instagram.com/fashionhub" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@fashionhub" target="_blank">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© Fashion Hub 2026</p>
+  </footer>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    hamburgerBtn?.addEventListener('click', () => {
+      navMenu?.classList.toggle('open');
+    });
+  </script>
+  <script src="cart.js"></script>
+</body>
+</html>

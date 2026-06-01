@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clothes | Fashion Hub</title>
+  <link rel="stylesheet" href="shop.css" />
+</head>
+<body>
+  <header class="header-bar">
+    <div class="header-top">
+      <a href="index.html" class="logo">Fashion Hub</a>
+      <nav class="top-links">
+        <a href="#">Account</a>
+        <a href="#">Wishlist</a>
+        <span class="cart-icon" id="cartBtn">🛍️<span class="cart-count" id="cartCount">0</span></span>
+      </nav>
+      <button id="hamburgerBtn" class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav id="navMenu" class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="clothes.html">Clothes</a></li>
+        <li><a href="bags.html">Bags</a></li>
+        <li><a href="jewellery.html">Jewellery</a></li>
+        <li><a href="shoes.html">Shoes</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1>Clothes</h1>
+      <p>Explore the latest collection of dresses, tops, jackets and more, handpicked for Kenyan style.</p>
+    </section>
+    <section class="page-section">
+      <div class="product-grid">
+        <article class="product-card">
+          <img src="images/Elegant Dress.jpeg" alt="Elegant Dress" />
+          <div class="product-copy">
+            <h3>Elegant Dress</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 4,800</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Elegant Dress" data-price="4800">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Statement Jacket.jpeg" alt="Statement Jacket" />
+          <div class="product-copy">
+            <h3>Statement Jacket</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 6,200</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Statement Jacket" data-price="6200">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Silk Top.jpeg" alt="Silk Top" />
+          <div class="product-copy">
+            <h3>Silk Top</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 2,900</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Silk Top" data-price="2900">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/Tailored Shirt.jpeg" alt="Tailored Shirt" />
+          <div class="product-copy">
+            <h3>Tailored Shirt</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 3,400</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Tailored Shirt" data-price="3400">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/bluejeans.jpeg" alt="Blue Jeans" />
+          <div class="product-copy">
+            <h3>Blue Jeans</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 3,900</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Blue Jeans" data-price="3900">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/casualshirt.jpeg" alt="Casual Shirt" />
+          <div class="product-copy">
+            <h3>Casual Shirt</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 2,600</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Casual Shirt" data-price="2600">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/floralskirt.jpeg" alt="Floral Skirt" />
+          <div class="product-copy">
+            <h3>Floral Skirt</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 4,100</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Floral Skirt" data-price="4100">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="images/hoodie.jpeg" alt="Hoodie" />
+          <div class="product-copy">
+            <h3>Hoodie</h3>
+            <p class="product-description">Premium quality item crafted for style and durability.</p>
+            <span class="product-price">KES 3,800</span>
+            <button class="add-to-cart-btn btn-primary" data-name="Hoodie" data-price="3800">Add to Cart</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">KES 0</span>
+      </div>
+      <button class="cart-checkout" id="checkoutBtn">Checkout via WhatsApp</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h4>Help & Information</h4>
+        <ul>
+          <li><a href="customer-care.html">Customer Care</a></li>
+          <li><a href="track-order.html">Track Order</a></li>
+          <li><a href="delivery-returns.html">Delivery & Returns</a></li>
+          <li><a href="loyalty.html">Fashion Hub Loyalty</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About Fashion Hub</h4>
+        <ul>
+          <li><a href="our-story.html">Our Story</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More from Fashion Hub</h4>
+        <ul>
+          <li><a href="gift-vouchers.html">Gift Vouchers</a></li>
+        </ul>
+        <div class="social-links">
+          <a href="https://instagram.com/fashionhub" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@fashionhub" target="_blank">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© Fashion Hub 2026</p>
+  </footer>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    hamburgerBtn?.addEventListener('click', () => {
+      navMenu?.classList.toggle('open');
+    });
+  </script>
+  <script src="cart.js"></script>
+</body>
+</html>
