@@ -108,40 +108,40 @@
         <button class="category-filter" data-category="shoes">Shoes</button>
       </div>
       <div class="product-grid">
-        <article class="product-card" data-category="clothes">
+        <article class="product-card" data-category="clothes" data-href="clothes.html">
           <img src="images/Everyday Dress.jpeg" alt="Clothes product" />
           <div class="product-copy">
             <h3>Everyday Dress</h3>
             <p class="product-description">A lightweight dress designed for comfort and modern style.</p>
             <span class="product-price">KES 4,200</span>
-            <a class="btn-primary" href="clothes.html">View category</a>
+              <a class="btn-primary view-category" href="clothes.html">View category</a>
           </div>
         </article>
-        <article class="product-card" data-category="bags">
+        <article class="product-card" data-category="bags" data-href="bags.html">
           <img src="images/Structured Handbag.jpeg" alt="Bags product" />
           <div class="product-copy">
             <h3>Structured Handbag</h3>
             <p class="product-description">A polished handbag perfect for work and evening wear.</p>
             <span class="product-price">KES 5,500</span>
-            <a class="btn-primary" href="bags.html">View category</a>
+            <a class="btn-primary view-category" href="bags.html">View category</a>
           </div>
         </article>
-        <article class="product-card" data-category="jewellery">
+        <article class="product-card" data-category="jewellery" data-href="jewellery.html">
           <img src="images/Gold Pendant.jpeg" alt="Jewellery product" />
           <div class="product-copy">
             <h3>Gold Pendant</h3>
             <p class="product-description">A delicate pendant to elevate everyday outfits.</p>
             <span class="product-price">KES 2,800</span>
-            <a class="btn-primary" href="jewellery.html">View category</a>
+            <a class="btn-primary view-category" href="jewellery.html">View category</a>
           </div>
         </article>
-        <article class="product-card" data-category="shoes">
+        <article class="product-card" data-category="shoes" data-href="shoes.html">
           <img src="images/Leather Sneakers.jpeg" alt="Shoes product" />
           <div class="product-copy">
             <h3>Leather Sneakers</h3>
             <p class="product-description">Comfortable sneakers with a clean, versatile finish.</p>
             <span class="product-price">KES 6,300</span>
-            <a class="btn-primary" href="shoes.html">View category</a>
+            <a class="btn-primary view-category" href="shoes.html">View category</a>
           </div>
         </article>
       </div>
@@ -153,12 +153,7 @@
         <h2>The biggest labels in Kenya</h2>
       </div>
 
-      <div class="logo-grid">
-        <div class="logo-placeholder">Label 1</div>
-        <div class="logo-placeholder">Label 2</div>
-        <div class="logo-placeholder">Label 3</div>
-        <div class="logo-placeholder">Label 4</div>
-      </div>
+      <!-- logo grid removed -->
 
       <div class="brands-grid">
         <article>
@@ -266,28 +261,34 @@
     });
 
     const categoryButtons = document.querySelectorAll('.category-filter');
-    const productCards = document.querySelectorAll('.product-card');
+
+    // Navigate to category pages when category buttons are clicked
+    const categoryMap = {
+      'all': 'index.html',
+      'clothes': 'clothes.html',
+      'bags': 'bags.html',
+      'jewellery': 'jewellery.html',
+      'shoes': 'shoes.html'
+    };
 
     categoryButtons.forEach(button => {
       button.addEventListener('click', () => {
         const category = button.dataset.category;
-
-        categoryButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        productCards.forEach(card => {
-          const cardCategory = card.dataset.category;
-          if (category === 'all' || cardCategory === category) {
-            card.style.display = 'grid';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+        const target = categoryMap[category] || 'index.html';
+        // Navigate to the category page
+        window.location.href = target;
       });
+    });
+    // Navigate when clicking a product card (ignore buttons/links/cart)
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('.product-card');
+      if (!card) return;
+      if (e.target.closest('.add-to-cart-btn') || e.target.tagName === 'A' || e.target.closest('.cart-sidebar')) return;
+      const href = card.dataset.href;
+      if (href) window.location.href = href;
     });
   </script>
   <script src="cart.js"></script>
-  </script>
 </body>
 </html>
 
