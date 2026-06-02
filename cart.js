@@ -17,8 +17,8 @@ class Cart {
     const checkoutBtn = document.getElementById('checkoutBtn');
 
     cartBtn?.addEventListener('click', () => this.toggleCart());
-    cartClose?.addEventListener('click', () => this.toggleCart());
-    cartOverlay?.addEventListener('click', () => this.toggleCart());
+    cartClose?.addEventListener('click', () => this.closeCart());
+    cartOverlay?.addEventListener('click', () => this.closeCart());
     checkoutBtn?.addEventListener('click', () => this.checkout());
 
     // Add to cart buttons
@@ -27,6 +27,22 @@ class Cart {
         const name = e.target.dataset.name;
         const price = parseInt(e.target.dataset.price);
         this.addItem(name, price);
+      }
+    });
+
+    // Close cart when clicking other product cards or links (but not when clicking Add-to-Cart)
+    document.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('cartSidebar');
+      if (!sidebar) return;
+      const isOpen = sidebar.classList.contains('open');
+      if (!isOpen) return;
+      // don't close when interacting with cart itself
+      if (e.target.closest('.cart-sidebar')) return;
+      // don't close when clicking add-to-cart (it should open)
+      if (e.target.closest('.add-to-cart-btn')) return;
+      // if clicked on a product card or a product link, close the cart
+      if (e.target.closest('.product-card') || e.target.closest('.product-grid') || e.target.tagName === 'A') {
+        this.closeCart();
       }
     });
   }
@@ -38,6 +54,20 @@ class Cart {
     overlay?.classList.toggle('open');
   }
 
+  openCart() {
+    const sidebar = document.getElementById('cartSidebar');
+    const overlay = document.getElementById('cartOverlay');
+    sidebar?.classList.add('open');
+    overlay?.classList.add('open');
+  }
+
+  closeCart() {
+    const sidebar = document.getElementById('cartSidebar');
+    const overlay = document.getElementById('cartOverlay');
+    sidebar?.classList.remove('open');
+    overlay?.classList.remove('open');
+  }
+
   addItem(name, price) {
     const existingItem = this.items.find(item => item.name === name);
     if (existingItem) {
@@ -47,6 +77,8 @@ class Cart {
     }
     this.save();
     this.render();
+    // open the cart so user sees the added item (works on mobile too)
+    this.openCart();
   }
 
   removeItem(name) {
@@ -89,9 +121,9 @@ class Cart {
 
     cartItemsDiv.innerHTML = this.items.map(item => `
       <div class="cart-item">
+        <button class="cart-item-remove xbtn" data-name="${item.name}">✕</button>
         <div class="cart-item-header">
           <span class="cart-item-name">${item.name}</span>
-          <button class="cart-item-remove" data-name="${item.name}">Remove</button>
         </div>
         <div class="cart-item-price">KES ${(item.price * item.qty).toLocaleString()}</div>
         <div class="cart-item-qty">
@@ -103,7 +135,12 @@ class Cart {
     `).join('');
 
     document.querySelectorAll('.cart-item-remove').forEach(btn => {
-      btn.addEventListener('click', () => this.removeItem(btn.dataset.name));
+      btn.addEventListener('click', () => {
+        const name = btn.dataset.name;
+        this.removeItem(name);
+        // fully hide the cart after removing
+        this.closeCart();
+      });
     });
 
     document.querySelectorAll('.increase-qty').forEach(btn => {

@@ -796,22 +796,24 @@ footer {
 }
 
 .cart-sidebar {
+  --cart-width: 360px;
   position: fixed;
-  right: -400px;
+  right: calc(-1 * var(--cart-width));
   top: 0;
-  width: 400px;
+  width: var(--cart-width);
   height: 100vh;
   background: var(--surface);
   box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
   z-index: 40;
   display: flex;
   flex-direction: column;
-  transition: right 0.3s ease;
+  transition: right 0.28s ease, box-shadow 0.2s ease;
   overflow-y: auto;
 }
 
 .cart-sidebar.open {
   right: 0;
+  box-shadow: -20px 0 40px rgba(0,0,0,0.18);
 }
 
 .cart-header {
@@ -829,9 +831,27 @@ footer {
 .cart-close {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   color: var(--text);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  position: relative;
+}
+
+/* Make the close button visible when cart is peeking */
+/* keep close button inside sidebar (no peeking) */
+.cart-sidebar .cart-close {
+  position: static;
+  left: auto;
+  top: auto;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .cart-items {
@@ -847,6 +867,7 @@ footer {
   border: 1px solid var(--border);
   border-radius: 12px;
   margin-bottom: 12px;
+  position: relative;
 }
 
 .cart-item-header {
@@ -865,7 +886,23 @@ footer {
   color: #d32f2f;
   cursor: pointer;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
+}
+
+/* Small circular X at top-right of each cart item for quick remove */
+.cart-item-remove.xbtn {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: rgba(211,47,47,0.06);
+  color: #d32f2f;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
 }
 
 .cart-item-price {
@@ -896,9 +933,11 @@ footer {
 }
 
 .cart-footer {
-  padding: 20px;
+  padding: 16px;
   border-top: 1px solid var(--border);
   background: var(--background);
+  position: sticky;
+  bottom: 0;
 }
 
 .cart-total {
@@ -951,5 +990,32 @@ footer {
     width: 100%;
     right: -100%;
   }
+}
+
+/* Add to Cart button styles */
+.add-to-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+}
+
+.add-to-cart-btn .cart-plus {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  padding: 6px;
+  border-radius: 6px;
+  font-weight: 900;
 }
 
